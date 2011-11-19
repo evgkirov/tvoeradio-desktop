@@ -12,6 +12,29 @@ MainWindow::MainWindow(QWidget *parent)
     this->view->show();
     connect(this->view, SIGNAL(titleChanged(QString)), this, SLOT(setWindowTitle(QString)));
 
+    // Global keys
+
+    QxtGlobalShortcut* previousMediaShortcut = new QxtGlobalShortcut(QKeySequence("Media Previous"));
+    connect(previousMediaShortcut, SIGNAL(activated()), qApp->bridge, SIGNAL(previous()));
+
+    QxtGlobalShortcut* previousShortcut = new QxtGlobalShortcut(QKeySequence("Meta+F10"));
+    connect(previousShortcut, SIGNAL(activated()), qApp->bridge, SIGNAL(previous()));
+
+    QxtGlobalShortcut* playMediaShortcut = new QxtGlobalShortcut(QKeySequence("Media Play"));
+    connect(playMediaShortcut, SIGNAL(activated()), qApp->bridge, SIGNAL(pause()));
+
+    QxtGlobalShortcut* playShortcut = new QxtGlobalShortcut(QKeySequence("Meta+F11"));
+    connect(playShortcut, SIGNAL(activated()), qApp->bridge, SIGNAL(pause()));
+
+    QxtGlobalShortcut* nextMediaShortcut = new QxtGlobalShortcut(QKeySequence("Media Next"));
+    connect(nextMediaShortcut, SIGNAL(activated()), qApp->bridge, SIGNAL(next()));
+
+    QxtGlobalShortcut* nextShortcut = new QxtGlobalShortcut(QKeySequence("Meta+F12"));
+    connect(nextShortcut, SIGNAL(activated()), qApp->bridge, SIGNAL(next()));
+
+
+    // Tray menu
+
     QMenu *menu = new QMenu();
 
     QAction *activateAction = menu->addAction(u("Активиров&ать"));

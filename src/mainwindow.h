@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMenu>
 #include <QSystemTrayIcon>
+#include <QxtGlobalShortcut>
 #include "application.h"
 #include "defines.h"
 #include "webview.h"

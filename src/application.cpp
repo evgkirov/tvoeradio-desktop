@@ -17,7 +17,6 @@ Application::Application(int & argc, char ** argv) :
     this->networkAccessManager->setCache(cache);
 
     this->bridge = new Bridge();
-
 }
 
 Application::~Application()
