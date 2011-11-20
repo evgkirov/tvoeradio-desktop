@@ -48,6 +48,9 @@ exists(/usr/lib/libQxtGui.so.0) { # Ubuntu WTF, part 2
     LIBS += /usr/lib/libQxtCore.so.0 /usr/lib/libQxtGui.so.0
 }
 
+QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.6.sdk
+ICON = img/tvoeradio-desktop.icns
+
 unix {
     target.path = /usr/bin/
     images.path = /usr/share/pixmaps
