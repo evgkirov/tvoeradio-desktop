@@ -30,3 +30,7 @@ HEADERS  += mainwindow.h \
 RESOURCES += \
     tvoeradio.qrc
 
+exists(/usr/include/qxt) { # Ubuntu WTF
+    INCLUDEPATH += /usr/include/qxt /usr/include/qxt/QxtCore /usr/include/qxt/QxtGui
+    LIBS += /usr/lib/libQxtGui.so.0 /usr/lib/libQxtGui.so.0
+}
