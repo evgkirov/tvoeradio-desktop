@@ -33,7 +33,12 @@ FORMS += \
     settingsdialog.ui
 
 RESOURCES += \
-    tvoeradio.qrc
+    tvoeradio-desktop.qrc
+
+OTHER_FILES += \
+    tvoeradio-desktop.rc
+
+RC_FILE = tvoeradio-desktop.rc
 
 exists(/usr/include/qxt) { # Ubuntu WTF, part 1
     INCLUDEPATH += /usr/include/qxt /usr/include/qxt/QxtCore /usr/include/qxt/QxtGui
@@ -41,4 +46,15 @@ exists(/usr/include/qxt) { # Ubuntu WTF, part 1
 
 exists(/usr/lib/libQxtGui.so.0) { # Ubuntu WTF, part 2
     LIBS += /usr/lib/libQxtCore.so.0 /usr/lib/libQxtGui.so.0
+}
+
+unix {
+    target.path = /usr/bin/
+    images.path = /usr/share/pixmaps
+    images.files += img/tvoeradio-desktop.png
+    desktop.path = /usr/share/applications
+    desktop.files += tvoeradio-desktop.desktop
+    INSTALLS += target \
+        images \
+        desktop
 }
