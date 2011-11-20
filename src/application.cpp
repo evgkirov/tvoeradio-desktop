@@ -16,6 +16,25 @@ Application::Application(int & argc, char ** argv) :
     cache->setCacheDirectory(cachePath);
     this->networkAccessManager->setCache(cache);
 
+    QSettings settings;
+    QNetworkProxy proxy;
+    settings.beginGroup("Network");
+    if (settings.value("Proxy", false).toBool()) {
+        switch (settings.value("ProxyType", false).toInt()) {
+        case 0: proxy.setType(QNetworkProxy::Socks5Proxy); break;
+        case 1: proxy.setType(QNetworkProxy::HttpProxy); break;
+        default: proxy.setType(QNetworkProxy::NoProxy); break;
+        }
+        proxy.setHostName(settings.value("ProxyHost").toString());
+        proxy.setPort(settings.value("ProxyPort").toInt());
+        proxy.setUser(settings.value("ProxyUser").toString());
+        proxy.setPassword(settings.value("ProxyPassword").toString());
+    } else {
+        proxy.setType(QNetworkProxy::NoProxy);
+    }
+    settings.endGroup();
+    QNetworkProxy::setApplicationProxy(proxy);
+
     this->bridge = new Bridge();
 }
 

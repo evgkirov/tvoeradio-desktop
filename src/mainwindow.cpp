@@ -3,6 +3,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    this->s_settingsDialog = 0;
+
     this->setWindowTitle(APP_TITLE);
     this->setMinimumSize(627, 500);
 
@@ -69,6 +71,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     menu->addSeparator();
 
+    QAction *settingsDialogAction = menu->addAction(u("Уведомления и прокси..."));
+    connect(settingsDialogAction, SIGNAL(triggered()), this, SLOT(settingsDialog()));
+
     QAction *quitAction = menu->addAction(u("В&ыход"));
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
 
@@ -109,7 +114,18 @@ void MainWindow::showAndRaise(QSystemTrayIcon::ActivationReason reason)
 
 void MainWindow::notify(QString artist, QString title)
 {
-    this->systemTrayIcon->showMessage(title, artist, QSystemTrayIcon::NoIcon, 2000);
+    QSettings settings;
+    if (settings.value("Interface/Notifications", true).toBool()) {
+        this->systemTrayIcon->showMessage(title, artist, QSystemTrayIcon::NoIcon, 2000);
+    }
     this->systemTrayIcon->contextMenu()->actions()[2]->setText(artist);
     this->systemTrayIcon->contextMenu()->actions()[3]->setText(title);
+}
+
+void MainWindow::settingsDialog()
+{
+    if (!this->s_settingsDialog) {
+        this->s_settingsDialog = new SettingsDialog(this);
+    }
+    this->s_settingsDialog->show();
 }

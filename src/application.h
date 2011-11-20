@@ -7,6 +7,8 @@
 #include <QIcon>
 #include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
+#include <QNetworkProxy>
+#include <QSettings>
 #include "bridge.h"
 #include "defines.h"
 #include "networkcookiejar.h"

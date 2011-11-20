@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     webpage.cpp \
     application.cpp \
     bridge.cpp \
-    networkcookiejar.cpp
+    networkcookiejar.cpp \
+    settingsdialog.cpp
 
 HEADERS  += mainwindow.h \
     webview.h \
@@ -25,12 +26,19 @@ HEADERS  += mainwindow.h \
     webpage.h \
     application.h \
     bridge.h \
-    networkcookiejar.h
+    networkcookiejar.h \
+    settingsdialog.h
+
+FORMS += \
+    settingsdialog.ui
 
 RESOURCES += \
     tvoeradio.qrc
 
-exists(/usr/include/qxt) { # Ubuntu WTF
+exists(/usr/include/qxt) { # Ubuntu WTF, part 1
     INCLUDEPATH += /usr/include/qxt /usr/include/qxt/QxtCore /usr/include/qxt/QxtGui
-    LIBS += /usr/lib/libQxtGui.so.0 /usr/lib/libQxtGui.so.0
+}
+
+exists(/usr/lib/libQxtGui.so.0) { # Ubuntu WTF, part 2
+    LIBS += /usr/lib/libQxtCore.so.0 /usr/lib/libQxtGui.so.0
 }

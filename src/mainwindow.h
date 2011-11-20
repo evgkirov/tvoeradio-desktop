@@ -3,10 +3,12 @@
 
 #include <QMainWindow>
 #include <QMenu>
+#include <QSettings>
 #include <QSystemTrayIcon>
 #include <QxtGlobalShortcut>
 #include "application.h"
 #include "defines.h"
+#include "settingsdialog.h"
 #include "webview.h"
 
 class MainWindow : public QMainWindow
@@ -21,13 +23,14 @@ public:
     WebView *view;
     QSystemTrayIcon *systemTrayIcon;
 
+private:
+    SettingsDialog *s_settingsDialog;
+
 public slots:
     void showAndRaise();
     void showAndRaise(QSystemTrayIcon::ActivationReason reason);
     void notify(QString artist, QString title);
-
-
-
+    void settingsDialog();
 
 };
 
