@@ -6,7 +6,9 @@ Application::Application(int & argc, char ** argv) :
     QIcon icon;
     icon.addFile(":/icon");
     icon.addFile(":/icon16");
+#ifndef Q_WS_MAC
     this->setWindowIcon(icon);
+#endif
     this->setQuitOnLastWindowClosed(false);
 
     QString cachePath = QDesktopServices::storageLocation(QDesktopServices::CacheLocation);
