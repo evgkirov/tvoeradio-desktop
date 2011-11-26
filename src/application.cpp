@@ -38,6 +38,7 @@ Application::Application(int & argc, char ** argv) :
     QNetworkProxy::setApplicationProxy(proxy);
 
     this->bridge = new Bridge();
+    this->bridge->networkCookieJar = (NetworkCookieJar*)this->networkAccessManager->cookieJar();
 }
 
 Application::~Application()

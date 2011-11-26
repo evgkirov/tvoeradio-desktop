@@ -39,3 +39,10 @@ void NetworkCookieJar::save()
     }
     file.close();
 }
+
+void NetworkCookieJar::clear()
+{
+    QList<QNetworkCookie> cookies;
+    this->setAllCookies(cookies);
+    this->save();
+}

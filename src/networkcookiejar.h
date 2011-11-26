@@ -15,6 +15,7 @@ public:
     ~NetworkCookieJar();
     void save();
     void load();
+    void clear();
 
     QString path;
 

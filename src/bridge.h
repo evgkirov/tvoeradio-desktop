@@ -5,12 +5,14 @@
 #include <QObject>
 #include <QPalette>
 #include <QVariantMap>
+#include "networkcookiejar.h"
 
 class Bridge : public QObject
 {
     Q_OBJECT
 public:
     explicit Bridge(QObject *parent = 0);
+    NetworkCookieJar *networkCookieJar;
 
 signals:
     void previous();
@@ -22,6 +24,7 @@ signals:
 public slots:
     QString get_version();
     QVariantMap get_palette();
+    void logout();
 
 };
 

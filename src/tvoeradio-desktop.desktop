@@ -1,12 +1,12 @@
 [Desktop Entry]
 X-Desktop-File-Install-Version=0.11
 Encoding=UTF-8
-Name=Tvoeradio Desktop
-Name[ru]=Твоёрадио Десктоп
+Name=Tvoeradio desktop
+Name[ru]=Твоёрадио десктоп
 Comment=The radio that automatically selects music for you.
 Comment[ru]=Радио, которое автоматически подбирает музыку по вашему вкусу.
-GenericName=Tvoeradio Desktop
-GenericName[ru]=Твоёрадио Десктоп
+GenericName=Tvoeradio desktop
+GenericName[ru]=Твоёрадио десктоп
 Exec=tvoeradio-desktop %F
 Icon=tvoeradio-desktop
 Terminal=false

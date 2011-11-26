@@ -32,3 +32,8 @@ QVariantMap Bridge::get_palette()
     colors.insert("link_visited", palette.linkVisited().color().name());
     return colors;
 }
+
+void Bridge::logout()
+{
+    this->networkCookieJar->clear();
+}
