@@ -5,7 +5,7 @@
 #include <QMenu>
 #include <QSettings>
 #include <QSystemTrayIcon>
-#include <QxtGlobalShortcut>
+#include "qxtglobalshortcut.h"
 #include "application.h"
 #include "defines.h"
 #include "settingsdialog.h"

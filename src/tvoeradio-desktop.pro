@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     application.cpp \
     bridge.cpp \
     networkcookiejar.cpp \
-    settingsdialog.cpp
+    settingsdialog.cpp \
+    qxtglobalshortcut.cpp
 
 HEADERS  += mainwindow.h \
     webview.h \
@@ -27,7 +28,14 @@ HEADERS  += mainwindow.h \
     application.h \
     bridge.h \
     networkcookiejar.h \
-    settingsdialog.h
+    settingsdialog.h \
+    qxtglobalshortcut_p.h \
+    qxtglobalshortcut.h \
+    qxtglobal.h
+
+macx:SOURCES += qxtglobalshortcut_mac.cpp
+win32:SOURCES += qxtglobalshortcut_win.cpp
+unix:!macx:SOURCES += qxtglobalshortcut_x11.cpp
 
 FORMS += \
     settingsdialog.ui
@@ -39,14 +47,6 @@ OTHER_FILES += \
     tvoeradio-desktop.rc
 
 RC_FILE = tvoeradio-desktop.rc
-
-exists(/usr/include/qxt) { # Ubuntu WTF, part 1
-    INCLUDEPATH += /usr/include/qxt /usr/include/qxt/QxtCore /usr/include/qxt/QxtGui
-}
-
-exists(/usr/lib/libQxtGui.so.0) { # Ubuntu WTF, part 2
-    LIBS += /usr/lib/libQxtCore.so.0 /usr/lib/libQxtGui.so.0
-}
 
 QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.6.sdk
 ICON = img/tvoeradio-desktop.icns
