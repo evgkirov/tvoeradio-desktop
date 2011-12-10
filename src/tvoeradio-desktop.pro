@@ -61,3 +61,9 @@ unix {
         images \
         desktop
 }
+
+
+# [arch] error: qxtglobalshortcut_x11.o: undefined reference to symbol 'XSync'
+exists(/usr/lib/libX11.so.6) {
+    LIBS += /usr/lib/libX11.so.6
+}
