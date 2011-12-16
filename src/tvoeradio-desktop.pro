@@ -5,8 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui network webkit
-CONFIG   += qxt
-QXT      += core gui
 TARGET = tvoeradio-desktop
 TEMPLATE = app
 
