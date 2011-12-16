@@ -3,6 +3,7 @@
 WebPage::WebPage(QObject *parent) :
     QWebPage(parent)
 {
+    QString cachePath = QDesktopServices::storageLocation(QDesktopServices::CacheLocation);
     connect(this, SIGNAL(windowCloseRequested()), this, SLOT(on_windowCloseRequested()));
     connect(this, SIGNAL(linkClicked(QUrl)), this, SLOT(on_linkClicked(QUrl)));
     connect(this->mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(on_javaScriptWindowObjectCleared()));
@@ -12,6 +13,7 @@ WebPage::WebPage(QObject *parent) :
     this->settings()->setAttribute(QWebSettings::JavaEnabled, false);
     this->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
     this->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+    this->settings()->setLocalStoragePath(cachePath);
 }
 
 void WebPage::on_windowCloseRequested()
