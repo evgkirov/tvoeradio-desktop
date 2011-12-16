@@ -36,9 +36,9 @@ LANGUAGE 0, SUBLANG_NEUTRAL
         BLOCK "0800fde9"
         {
             VALUE "CompanyName", "Твоёрадио"
-            VALUE "FileDescription", "Твоёрадио Десктоп"
+            VALUE "FileDescription", "Твоёрадио десктоп"
             VALUE "FileVersion", "2.0-alpha"
-            VALUE "ProductName", "Твоёрадио Десктоп"
+            VALUE "ProductName", "Твоёрадио десктоп"
             VALUE "ProductVersion", "2.0-alpha"
         }
     }
