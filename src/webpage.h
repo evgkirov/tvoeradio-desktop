@@ -13,6 +13,9 @@ class WebPage : public QWebPage
 public:
     explicit WebPage(QObject *parent = 0);
 
+protected:
+    QString userAgentForUrl(const QUrl &url) const;
+
 signals:
 
 public slots:
