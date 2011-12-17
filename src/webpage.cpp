@@ -14,6 +14,14 @@ WebPage::WebPage(QObject *parent) :
     this->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
 }
 
+QString WebPage::userAgentForUrl(const QUrl &url) const
+{
+    // Убираем "Safari/533.3" из конца строки user agent
+    QString ua = QWebPage::userAgentForUrl(url);
+    int last_space = ua.lastIndexOf(' ');
+    return ua.left(last_space);
+}
+
 void WebPage::on_windowCloseRequested()
 {
     ((QWidget*)this->parent())->close();
