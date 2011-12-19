@@ -5,6 +5,7 @@
 #include <QDesktopServices>
 #include <QDir>
 #include <QIcon>
+#include <QMainWindow>
 #include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
 #include <QNetworkProxy>
@@ -23,6 +24,12 @@ public:
 
     QNetworkAccessManager *networkAccessManager;
     Bridge *bridge;
+
+    QMainWindow *mainWindow;
+
+#ifdef Q_WS_MAC
+    void setupMacHandlers();
+#endif
 
 signals:
 

@@ -16,8 +16,7 @@ SOURCES += main.cpp\
     application.cpp \
     bridge.cpp \
     networkcookiejar.cpp \
-    settingsdialog.cpp \
-    qxtglobalshortcut.cpp
+    settingsdialog.cpp
 
 HEADERS  += mainwindow.h \
     webview.h \
@@ -26,14 +25,19 @@ HEADERS  += mainwindow.h \
     application.h \
     bridge.h \
     networkcookiejar.h \
-    settingsdialog.h \
-    qxtglobalshortcut_p.h \
+    settingsdialog.h
+
+# Qxt
+!macx:SOURCES += qxtglobalshortcut.cpp
+!macx:HEADERS += qxtglobalshortcut_p.h \
     qxtglobalshortcut.h \
     qxtglobal.h
-
-macx:SOURCES += qxtglobalshortcut_mac.cpp
 win32:SOURCES += qxtglobalshortcut_win.cpp
 unix:!macx:SOURCES += qxtglobalshortcut_x11.cpp
+
+# Mac OS
+macx:OBJECTIVE_SOURCES += application_mac.mm
+macx:LIBS += -framework Cocoa
 
 FORMS += \
     settingsdialog.ui
@@ -46,7 +50,7 @@ OTHER_FILES += \
 
 RC_FILE = tvoeradio-desktop.rc
 
-QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.6.sdk
+
 ICON = img/tvoeradio-desktop.icns
 
 unix {

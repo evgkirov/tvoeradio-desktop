@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->view->show();
     connect(this->view, SIGNAL(titleChanged(QString)), this, SLOT(setWindowTitle(QString)));
 
+#ifndef Q_WS_MAC
+
     // Global keys
 
     QxtGlobalShortcut* previousMediaShortcut = new QxtGlobalShortcut(QKeySequence("Media Previous"));
@@ -34,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
     QxtGlobalShortcut* nextShortcut = new QxtGlobalShortcut(QKeySequence("Meta+F12"));
     connect(nextShortcut, SIGNAL(activated()), qApp->bridge, SIGNAL(next()));
 
+
+#endif
 
     // Tray menu
 

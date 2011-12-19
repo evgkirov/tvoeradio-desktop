@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain(APP_DOMAIN);
     Application a(argc, argv);
     MainWindow w;
+    a.mainWindow = &w;
     w.show();
     return a.exec();
 }

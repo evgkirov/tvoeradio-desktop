@@ -39,13 +39,13 @@ Application::Application(int & argc, char ** argv) :
 
     this->bridge = new Bridge();
     this->bridge->networkCookieJar = (NetworkCookieJar*)this->networkAccessManager->cookieJar();
+
+#ifdef Q_WS_MAC
+    this->setupMacHandlers();
+#endif
 }
 
 Application::~Application()
 {
     delete this->networkAccessManager;
 }
-
-
-
-
