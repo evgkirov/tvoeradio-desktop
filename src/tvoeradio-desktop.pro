@@ -38,6 +38,10 @@ unix:!macx:SOURCES += qxtglobalshortcut_x11.cpp
 # Mac OS
 macx:OBJECTIVE_SOURCES += application_mac.mm
 macx:LIBS += -framework Cocoa
+macx: QMAKE_INFO_PLIST = mac/Info.plist
+macx:localizations.files = mac/ru.lproj/InfoPlist.strings
+macx:localizations.path = Contents/Resources/ru.lproj
+macx:QMAKE_BUNDLE_DATA += localizations
 
 FORMS += \
     settingsdialog.ui
