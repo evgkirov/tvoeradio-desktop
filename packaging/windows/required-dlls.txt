@@ -1,0 +1,14 @@
+﻿imageformats\qgif4.dll
+imageformats\qjpeg4.dll
+libeay32.dll
+libgcc_s_dw2-1.dll
+mingwm10.dll
+QtCore4.dll
+QtGui4.dll
+QtNetwork4.dll
+QtWebKit4.dll
+ssleay32.dll
+
+# OpenSSL (libeay32.dll+ssleay32.dll) взят из http://psi-dev.googlecode.com/,
+# так как там он собран с весёлым mingw, а не со скучным vc, и не надо тащить
+# из-за этого ещё и майкрософтовские библиотеки.
