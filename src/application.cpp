@@ -17,6 +17,7 @@ Application::Application(int & argc, char ** argv) :
     QNetworkDiskCache* cache = new QNetworkDiskCache();
     cache->setCacheDirectory(cachePath);
     this->networkAccessManager->setCache(cache);
+    connect(this->networkAccessManager, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)), this, SLOT(on_sslError(QNetworkReply*,QList<QSslError>)));
 
     QSettings settings;
     QNetworkProxy proxy;
@@ -48,4 +49,9 @@ Application::Application(int & argc, char ** argv) :
 Application::~Application()
 {
     delete this->networkAccessManager;
+}
+
+void Application::on_sslError(QNetworkReply *reply, const QList<QSslError> &errors)
+{
+    reply->ignoreSslErrors(errors);
 }

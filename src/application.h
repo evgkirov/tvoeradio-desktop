@@ -9,6 +9,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
 #include <QNetworkProxy>
+#include <QNetworkReply>
 #include <QSettings>
 #include "bridge.h"
 #include "defines.h"
@@ -34,7 +35,7 @@ public:
 signals:
 
 public slots:
-
+    void on_sslError(QNetworkReply *reply, const QList<QSslError> &errors);
 };
 
 
