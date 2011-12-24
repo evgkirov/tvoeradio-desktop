@@ -37,9 +37,9 @@ LANGUAGE 0, SUBLANG_NEUTRAL
         {
             VALUE "CompanyName", "Твоёрадио"
             VALUE "FileDescription", "Твоёрадио Десктоп"
-            VALUE "FileVersion", "2.0-alpha"
+            VALUE "FileVersion", "2.0"
             VALUE "ProductName", "Твоёрадио Десктоп"
-            VALUE "ProductVersion", "2.0-alpha"
+            VALUE "ProductVersion", "2.0"
         }
     }
     BLOCK "VarFileInfo"
