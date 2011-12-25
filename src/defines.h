@@ -15,6 +15,6 @@
 #define APP_VERSION "2.0"
 #define APP_ORG "tvoeradio"
 #define APP_DOMAIN "tvoeradio.org"
-#define APP_URL QUrl("http://tvoeradio.extractor.locum.ru/app/")
+#define APP_URL QUrl("http://tvoeradio.org/app/")
 
 #endif // DEFINES_H
