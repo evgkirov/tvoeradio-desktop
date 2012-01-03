@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QMenu *menu = new QMenu();
 
-    QAction *activateAction = menu->addAction(u("Активиров&ать"));
+    QAction *activateAction = menu->addAction(u("Показ&ать главное окно"));
     connect(activateAction, SIGNAL(triggered()), this, SLOT(showAndRaise()));
 
     menu->addSeparator();
