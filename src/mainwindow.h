@@ -27,10 +27,12 @@ private:
     SettingsDialog *s_settingsDialog;
 
 public slots:
+    void setWindowTitle(const QString &);
     void showAndRaise();
     void showAndRaise(QSystemTrayIcon::ActivationReason reason);
     void notify(QString artist, QString title);
     void settingsDialog();
+
 
 };
 

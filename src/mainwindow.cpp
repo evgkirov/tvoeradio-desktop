@@ -4,6 +4,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     this->s_settingsDialog = 0;
+    this->systemTrayIcon = 0;
 
     this->setWindowTitle(APP_TITLE);
     this->setMinimumSize(627, 500);
@@ -12,7 +13,6 @@ MainWindow::MainWindow(QWidget *parent)
     this->view->setUrl(APP_URL);
     this->setCentralWidget(this->view);
     this->view->show();
-    connect(this->view, SIGNAL(titleChanged(QString)), this, SLOT(setWindowTitle(QString)));
 
 #ifndef Q_WS_MAC
 
@@ -96,7 +96,18 @@ MainWindow::MainWindow(QWidget *parent)
     #endif
     this->systemTrayIcon->show();
 
+    connect(this->view, SIGNAL(titleChanged(QString)), this, SLOT(setWindowTitle(QString)));
+
 }
+
+void MainWindow::setWindowTitle(const QString &title)
+{
+    QMainWindow::setWindowTitle(title);
+    if (this->systemTrayIcon) {
+        this->systemTrayIcon->setToolTip(title);
+    }
+}
+
 
 MainWindow::~MainWindow()
 {
