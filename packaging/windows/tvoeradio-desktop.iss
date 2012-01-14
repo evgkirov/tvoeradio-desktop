@@ -4,14 +4,14 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{EEEE173E-5082-4296-B20D-4192CB42467A}
 AppName=Твоёрадио Десктоп
-AppVersion=2.0
+AppVersion=2.0a
 AppPublisher=Твоёрадио
 AppPublisherURL=http://tvoeradio.org/
 AppSupportURL=http://vkontakte.ru/tvoeradio_official
 AppUpdatesURL=http://tvoeradio.org/desktop/
 DefaultDirName={pf}\Tvoeradio Desktop
 DisableProgramGroupPage=yes
-OutputBaseFilename=tvoeradio-desktop-2.0-setup
+OutputBaseFilename=tvoeradio-desktop-2.0a-setup
 Compression=lzma
 SolidCompression=yes
 
