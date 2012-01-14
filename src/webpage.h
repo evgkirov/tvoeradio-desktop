@@ -6,6 +6,7 @@
 #include <QWebSettings>
 #include <QWebPage>
 #include "application.h"
+#include "networkcookiejar.h"
 
 class WebPage : public QWebPage
 {
@@ -22,6 +23,7 @@ public slots:
     void on_windowCloseRequested();
     void on_linkClicked(QUrl url);
     void on_javaScriptWindowObjectCleared();
+    void on_loadFinished(bool ok);
 
 };
 

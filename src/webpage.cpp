@@ -7,6 +7,7 @@ WebPage::WebPage(QObject *parent) :
     connect(this, SIGNAL(windowCloseRequested()), this, SLOT(on_windowCloseRequested()));
     connect(this, SIGNAL(linkClicked(QUrl)), this, SLOT(on_linkClicked(QUrl)));
     connect(this->mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(on_javaScriptWindowObjectCleared()));
+    connect(this, SIGNAL(loadFinished(bool)), this, SLOT(on_loadFinished(bool)));
     this->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     this->setNetworkAccessManager(qApp->networkAccessManager);
     this->settings()->setAttribute(QWebSettings::LocalStorageEnabled, true);
@@ -37,4 +38,9 @@ void WebPage::on_linkClicked(QUrl url)
 void WebPage::on_javaScriptWindowObjectCleared()
 {
     this->mainFrame()->addToJavaScriptWindowObject("bridge", qApp->bridge);
+}
+
+void WebPage::on_loadFinished(bool ok)
+{
+    ((NetworkCookieJar*)qApp->networkAccessManager->cookieJar())->save();
 }
