@@ -1,7 +1,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <QApplication>
+#include <QtSingleApplication>
 #include <QDesktopServices>
 #include <QDir>
 #include <QIcon>
@@ -15,7 +15,7 @@
 #include "defines.h"
 #include "networkcookiejar.h"
 
-class Application : public QApplication
+class Application : public QtSingleApplication
 {
     Q_OBJECT
 
