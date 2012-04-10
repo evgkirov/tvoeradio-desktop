@@ -10,8 +10,12 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName(APP_ORG);
     QCoreApplication::setOrganizationDomain(APP_DOMAIN);
     Application a(argc, argv);
-    MainWindow w;
+    if (a.isRunning()) {
+        return 0;
+    }
+    MainWindow w;    
     a.mainWindow = &w;
+    a.setActivationWindow(&w);
     w.show();
     return a.exec();
 }

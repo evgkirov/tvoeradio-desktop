@@ -73,3 +73,6 @@ unix {
 exists(/usr/lib/libX11.so.6) {
     LIBS += /usr/lib/libX11.so.6
 }
+
+# To allow only one working copy of the programm.
+include(qtsingleapplication/src/qtsingleapplication.pri)

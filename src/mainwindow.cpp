@@ -117,6 +117,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::showAndRaise()
 {
+    qDebug() << "Inside show and raise";
     this->show();
     this->raise();
 }
