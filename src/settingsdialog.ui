@@ -16,6 +16,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true">QTabBar::tab { width: 100px;}</string>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
