@@ -66,6 +66,7 @@ unix {
     INSTALLS += target \
         images \
         desktop
+    LIBS += -lX11
 }
 
 
