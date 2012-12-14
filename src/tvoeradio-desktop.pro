@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network webkit
+QT       += core gui network webkit dbus
 TARGET = tvoeradio-desktop
 TEMPLATE = app
 
@@ -34,6 +34,17 @@ HEADERS  += mainwindow.h \
     qxtglobal.h
 win32:SOURCES += qxtglobalshortcut_win.cpp
 unix:!macx:SOURCES += qxtglobalshortcut_x11.cpp
+
+#MPRIS2
+unix:!macx{
+    SOURCES += mpris.cpp \
+    mpris2/root2object.cpp \
+    mpris2/player2object.cpp
+
+    HEADERS+= mpris.h \
+    mpris2/root2object.h \
+    mpris2/player2object.h
+}
 
 # Mac OS
 macx:OBJECTIVE_SOURCES += application_mac.mm
@@ -68,7 +79,6 @@ unix {
         desktop
     LIBS += -lX11
 }
-
 
 # [arch] error: qxtglobalshortcut_x11.o: undefined reference to symbol 'XSync'
 exists(/usr/lib/libX11.so.6) {

@@ -41,6 +41,10 @@ Application::Application(int & argc, char ** argv) :
     this->bridge = new Bridge();
     this->bridge->networkCookieJar = (NetworkCookieJar*)this->networkAccessManager->cookieJar();
 
+#ifdef Q_OS_LINUX
+    this->mpris = new MPRIS(this);
+#endif
+
 #ifdef Q_WS_MAC
     this->setupMacHandlers();
 #endif

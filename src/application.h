@@ -14,6 +14,9 @@
 #include "bridge.h"
 #include "defines.h"
 #include "networkcookiejar.h"
+#ifdef Q_OS_LINUX
+#include "mpris.h"
+#endif
 
 class Application : public QtSingleApplication
 {
@@ -27,7 +30,9 @@ public:
     Bridge *bridge;
 
     QMainWindow *mainWindow;
-
+#ifdef Q_OS_LINUX
+    MPRIS *mpris;
+#endif
 #ifdef Q_WS_MAC
     void setupMacHandlers();
 #endif
