@@ -15,7 +15,7 @@
 #include "defines.h"
 #include "networkcookiejar.h"
 #ifdef Q_OS_LINUX
-#include "mpris.h"
+#include "mpris/mpris2/Mpris2.h"
 #endif
 
 class Application : public QtSingleApplication
@@ -31,7 +31,7 @@ public:
 
     QMainWindow *mainWindow;
 #ifdef Q_OS_LINUX
-    MPRIS *mpris;
+    Mpris2 *mpris;
 #endif
 #ifdef Q_WS_MAC
     void setupMacHandlers();

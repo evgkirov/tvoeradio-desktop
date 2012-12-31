@@ -42,7 +42,7 @@ Application::Application(int & argc, char ** argv) :
     this->bridge->networkCookieJar = (NetworkCookieJar*)this->networkAccessManager->cookieJar();
 
 #ifdef Q_OS_LINUX
-    this->mpris = new MPRIS(this);
+    this->mpris = new Mpris2(this);
 #endif
 
 #ifdef Q_WS_MAC

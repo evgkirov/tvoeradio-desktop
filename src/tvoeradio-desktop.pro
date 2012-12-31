@@ -16,7 +16,8 @@ SOURCES += main.cpp\
     application.cpp \
     bridge.cpp \
     networkcookiejar.cpp \
-    settingsdialog.cpp
+    settingsdialog.cpp \
+
 
 HEADERS  += mainwindow.h \
     webview.h \
@@ -25,7 +26,8 @@ HEADERS  += mainwindow.h \
     application.h \
     bridge.h \
     networkcookiejar.h \
-    settingsdialog.h
+    settingsdialog.h \
+
 
 # Qxt
 !macx:SOURCES += qxtglobalshortcut.cpp
@@ -35,16 +37,6 @@ HEADERS  += mainwindow.h \
 win32:SOURCES += qxtglobalshortcut_win.cpp
 unix:!macx:SOURCES += qxtglobalshortcut_x11.cpp
 
-#MPRIS2
-unix:!macx{
-    SOURCES += mpris.cpp \
-    mpris2/root2object.cpp \
-    mpris2/player2object.cpp
-
-    HEADERS+= mpris.h \
-    mpris2/root2object.h \
-    mpris2/player2object.h
-}
 
 # Mac OS
 macx:OBJECTIVE_SOURCES += application_mac.mm
@@ -78,6 +70,19 @@ unix {
         images \
         desktop
     LIBS += -lX11
+}
+
+#MPRIS2
+unix:!macx{
+    SOURCES +=     mpris/mpris2/Mpris2.cpp \
+    mpris/mpris2/MediaPlayer2Player.cpp \
+    mpris/mpris2/MediaPlayer2.cpp \
+    mpris/mpris2/DBusAbstractAdaptor.cpp
+
+    HEADERS+=     mpris/mpris2/Mpris2.h \
+    mpris/mpris2/MediaPlayer2Player.h \
+    mpris/mpris2/MediaPlayer2.h \
+    mpris/mpris2/DBusAbstractAdaptor.h
 }
 
 # [arch] error: qxtglobalshortcut_x11.o: undefined reference to symbol 'XSync'
