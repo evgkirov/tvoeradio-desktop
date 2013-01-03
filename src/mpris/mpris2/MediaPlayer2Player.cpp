@@ -81,15 +81,18 @@ bool MediaPlayer2Player::CanPause() const {
 void MediaPlayer2Player::Pause() {
     if (playstate)
         QMetaObject::invokeMethod(bridge, "pause");
+    playstate=false;
 }
 
 void MediaPlayer2Player::PlayPause() {
     QMetaObject::invokeMethod(bridge, "pause");
+    playstate=!playstate;
 }
 
 void MediaPlayer2Player::Stop() {
     if (playstate)
         QMetaObject::invokeMethod(bridge, "pause");
+    playstate=false;
 }
 
 bool MediaPlayer2Player::CanPlay() const {
@@ -99,6 +102,7 @@ bool MediaPlayer2Player::CanPlay() const {
 void MediaPlayer2Player::Play() {
     if (!playstate)
         QMetaObject::invokeMethod(bridge, "pause");
+    playstate=true;
 }
 
 void MediaPlayer2Player::SetPosition( const QDBusObjectPath &TrackId, qlonglong position ) const {
